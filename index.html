@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مخزن الأسئلة - سؤال و جواب</title>
+    <style>
+        /* ===== Base Style ===== */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            direction: rtl; /* Added for Arabic text direction */
+        }
+
+        /* ===== Floating Smoke ===== */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png" );
+            opacity: 0.15;
+            animation: smoke 60s linear infinite;
+            z-index: -1; /* Ensure smoke is behind content */
+        }
+
+        @keyframes smoke {
+            from { transform: translateX(0) translateY(0); }
+            to   { transform: translateX(-500px) translateY(-300px); }
+        }
+
+        /* ===== Main Box ===== */
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ===== Heading ===== */
+        h1 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.6);
+            color: #fff; /* Ensure heading color is white */
+        }
+
+        /* ===== Buttons Container ===== */
+        .buttons-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            max-width: 360px;
+            margin: auto;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            padding: 16px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: block; /* Ensure buttons take full width in grid */
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transition: 0.4s;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        /* ===== Different Colors for Buttons ===== */
+        .btn:nth-child(1) { background: linear-gradient(45deg, #ff512f, #dd2476); }
+        .btn:nth-child(2) { background: linear-gradient(45deg, #36d1dc, #5b86e5); }
+        .btn:nth-child(3) { background: linear-gradient(45deg, #11998e, #38ef7d); }
+        .btn:nth-child(4) { background: linear-gradient(45deg, #f7971e, #ffd200); }
+
+        /* ===== Floating Balloons ===== */
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 20s linear infinite;
+            z-index: -1; /* Ensure balloons are behind content */
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to   { transform: translateY(-120vh); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .container {
+                padding: 30px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .buttons-container {
+                gap: 15px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Balloons -->
+    <div class="balloon" style="left:10%; background:red; animation-delay:0s;"></div>
+    <div class="balloon" style="left:30%; background:yellow; animation-delay:5s;"></div>
+    <div class="balloon" style="left:50%; background:blue; animation-delay:2s;"></div>
+    <div class="balloon" style="left:70%; background:green; animation-delay:7s;"></div>
+    <div class="balloon" style="left:90%; background:pink; animation-delay:3s;"></div>
+
+    <div class="container">
+        <h1>مخزن الأسئلة</h1>
+
+        <div class="buttons-container">
+            <a href="hiea.html" class="btn">০১। হাইআ প্রশ্ন</a>
+            <a href="bafaq.html" class="btn">০২। বেফাক প্রশ্ন</a>
+            <a href="unsol.html" class="btn">০৩। আঞ্চলিক বোর্ডের প্রশ্ন</a>
+            <a href="madrasha.html" class="btn">০৪। মাদরাসার প্রশ্ন</a>
+        </div>
+    </div>
+
+</body>
+</html>

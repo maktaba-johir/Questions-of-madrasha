@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নাহবেমীর জামাতের প্রশ্ন - ডাউনলোড</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --gold-grad: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #004e92, #000428, #0052d4);
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 40px 0; color: #fff; direction: rtl; overflow-x: hidden;
+        }
+
+        /* ধোঁয়া ইফেক্ট */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 200%; height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png"); opacity: 0.15;
+            animation: smokeMove 80s linear infinite; z-index: -1;
+        }
+        @keyframes smokeMove { from { transform: translate(0, 0); } to { transform: translate(-20%, -20%); } }
+
+        .container {
+            position: relative; z-index: 10; background: var(--glass-bg);
+            backdrop-filter: blur(20px); padding: 30px; border-radius: 35px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); max-width: 850px; width: 92%;
+            border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;
+        }
+
+        /* শিরোনাম */
+        .header h1 {
+            font-size: 2rem; background: var(--gold-grad);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; margin-bottom: 5px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .subtitle { color: #00d4ff; margin-bottom: 5px; font-size: 1.1rem; }
+        .subtitle-ar { font-size: 1.3rem; margin-bottom: 20px; color: #fcf6ba; }
+
+        .instructions-box {
+            background: rgba(255, 215, 0, 0.1); border: 2px dashed #ffd700;
+            padding: 12px 20px; border-radius: 15px; margin: 0 auto 25px auto;
+            max-width: 600px; font-size: 1rem; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
+
+        /* কিতাব বার */
+        .book-item {
+            display: flex; align-items: center; 
+            padding: 12px 30px; margin: 0 0 15px auto;
+            border-radius: 18px; max-width: 700px;
+            transition: all 0.4s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: translateX(-20px);
+        }
+        .book-item:hover { transform: translateX(-20px) translateY(-3px) scale(1.01); }
+
+        .color-1 { background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59); }
+        .color-2 { background: linear-gradient(135deg, #3a7bd5, #00d2ff); }
+        .color-3 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .color-4 { background: linear-gradient(135deg, #743ad5, #d53a9d); }
+
+        .actions-container { display: flex; gap: 10px; flex: 0 0 35%; direction: ltr; }
+        .year-select { padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.4); color: #fff; border: 1px solid #fff; font-size: 0.85rem; width: 85px; }
+        .download-btn { padding: 6px 14px; border-radius: 8px; background: #fff; color: #333; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
+        .download-btn:disabled { opacity: 0.4; }
+
+        .book-names { flex: 1; text-align: right; padding-right: 20px; }
+        .book-bn { font-weight: 700; font-size: 1.05rem; display: block; }
+        .book-ar { font-size: 0.85rem; opacity: 0.9; display: block; }
+
+        /* অথর কার্ড */
+        .author-card { margin-top: 35px; padding: 25px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .author-name { font-size: 1.6em; color: #fcc201; font-weight: bold; }
+        .author-info { color: #ddd; font-size: 0.95em; margin: 8px 0 20px; }
+
+        .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .social-btn {
+            padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #fff;
+            font-size: 0.85rem; font-weight: bold; transition: 0.3s; min-width: 110px;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .s-phone { background: linear-gradient(135deg, #1D976C, #93F9B9); color: #000; }
+        .s-wa { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .s-tg { background: linear-gradient(135deg, #0088cc, #24bdff); }
+        .s-imo { background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC); }
+        .s-fb { background: linear-gradient(135deg, #1877f2, #3b5998); }
+        .s-gh { background: linear-gradient(135deg, #232526, #414345); }
+
+        .back-btn { text-decoration: none; color: #fcc201; border: 1px solid #fcc201; padding: 6px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; }
+
+        @media (max-width: 600px) { .book-item { transform: none; flex-direction: column; } .actions-container { width: 100%; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="bafaq.html" class="back-btn">← ফিরে যান</a>
+
+        <div class="header">
+            <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+            <div class="subtitle-ar">وفاق المدارس العربية بنجلاديش</div>
+            <div class="subtitle">নাহবেমীর জামাতের প্রশ্ন ডাউনলোড করুন</div>
+        </div>
+
+        <div class="instructions-box">
+            <i class="fas fa-info-circle"></i>
+            নির্দিষ্ট সালের প্রশ্ন ডাউনলোড করতে কিতাবের পাশে <strong>"সাল"</strong> নির্বাচন করুন।
+        </div>
+
+        <div id="books-list"></div>
+
+        <div class="author-card">
+            <div class="author-name">মুফতী জহিরুল ইসলাম</div>
+            <div class="author-info">মুহাদ্দিস ও কম্পিউটার অপারেটর<br>জামি‘আতুল অলিজা ইসলামিয়া মাদরাসা, গাজীপুর।</div>
+            
+            <div class="social-links">
+                <a href="tel:8801742812210" class="social-btn s-phone">📞 ফোন</a>
+                <a href="https://wa.me/8801742812210" class="social-btn s-wa">💬 হোয়াটসঅ্যাপ</a>
+                <a href="https://t.me/johirarif" class="social-btn s-tg">✈️ টেলিগ্রাম</a>
+                <a href="https://fimo.onelink.me/?QQl/sm" class="social-btn s-imo">📱 ইমু</a>
+                <a href="https://www.facebook.com/786johir" class="social-btn s-fb">🔵 ফেসবুক</a>
+                <a href="https://github.com/maktaba-johir" class="social-btn s-gh">🐙 গিটহাব</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const books = [
+            { 
+                id: 'nm', bn: '০১। নাহবেমীর', ar: 'نحو مير - في علم النحو', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1Q060OS_w4tXct_1fs3HkqVrnW1nrj0KF/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1rof-73nAb6xUYpLE2o0kgSLh4jiFDjlB/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/177_Q_pO93xmWRdsBCGkNT2fq68rZw7YE/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1to6cvo-g1CN-iHi4lx-zM2DgXyXEvR2T/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'sm', bn: '০২। শরহে মিয়াতে আমেল', ar: 'شرح مائة عامل', color: 'color-2',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1LSLBccwzXtQtTyfeBEG7EwktVGJP8kj8/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/12Zti8F9-kaTNzXj3gorVpHvuigaFDbOY/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1cK1qyMHWLmKFk_8HjStg6oKVO08C-hpY/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1N-SP29KOPTx6hmUvSgjjv4OIOton9RpG/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'pi', bn: '০৩। পাঞ্জেগঞ্জ ও ইলমুস সরফ', ar: 'پنج گنج ও علم الصرف', color: 'color-3',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1y2NLSA6TIUQYXJFXOMbCFSqgGMxYzpMS/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1JRe5iHhsywTes0yEQHTxjO3faiKll7AX/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1Z7vokZNzXhStF_W_HarH9ekkpsLryhVS/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1Ub37T4UlYLmVQuZz39H0dPsXXDqSNqPr/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'ra', bn: '০৪। রওযাতুল আদব', ar: 'روضة الأدب', color: 'color-4',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1y2NLSA6TIUQYXJFXOMbCFSqgGMxYzpMS/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1WXSsKn_zE0sDG_CMUOChCZa5gn4R74ro/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1_IU8dP3sWDXxKaaAi7EJ82tkDT9lIecc/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1B0J-eB-aY3XIfwDEEU2Dh5DxfXVtCo1v/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'fm', bn: '০৫। আল ফিকহুল মুয়াসসার', ar: 'الفقه الميسر', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1K2jZu9Iu4ZMRFZXZErz_vXlvx0J7uV-C/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1zfHb1Q-GfGJuF2exf7nxPVJI40lxxjR6/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1ygh7_9u6chL1Zf_uKdLSW3oqDpvN0ioV/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1hWLjIdHF7uqJKBUvWhwReaXJTpWUR8aa/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'mm', bn: '০৬। মালাবুদ্দা মিনহু', ar: 'مالا بد منه', color: 'color-2',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1k2qKWnEfA7jdRn8ebXlrBELqAKxIvquR/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1c6l8DxksaqAOi0fFTUM_4FGLaILA53JQ/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1hsZxtxquHaQJUaRxRF_r-aeFMHHqVXBw/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/15t0D66a6CsvX628rxEvLKUS-8GkFUiBU/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'sk', bn: '০৭। সিরাতে খাতামুল আম্বিয়া', ar: 'سيرة خاتم الأنبياء ﷺ', color: 'color-3',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1SBfd9HXz2ZqC_hVadqtFHTCAd_Ik5cW2/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1h7eWwkaR8MLNHc1cI6AXx2TAMNID5w5n/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1Z5vKX8H1o584VNPoxNXagkKqdynHk5G-/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1MjQ0vbjfwQSj1uYtlmOq02HOySLOPysl/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'gl', bn: '০৮। গুলিস্তা (বালক*)', ar: 'گلستان سعدي', color: 'color-4',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1waHtrJWf79n6X-bARaa-KFMYQZA-D8Ll/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1UI7dhhdLSP9NbyFndk0CnkCjLRbI2U7G/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1L8M2ZZtbfwiOWt_MRF98YO6DMpKmAVtx/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1aHCi70QFEVJ3o1b_ePj-mfSd6riQLXjL/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'b7', bn: '০৯। বাংলা ৭ম (বালক* ও বালিকা)', ar: 'اللغة البنغالية - الصف السابع', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1HFpHMLwEJP24Z3BjCNwGiVfs0vacHZCC/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1ryEZJzuMUqka7n4dYz4LkTZICgJoDut0/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/16RXD99EgpvOHO8DSsuXySybGvosbYQv4/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1d-rR5L9n_Nvq5dqw8ig4oapSFt-igxxG/view?usp=sharing"
+                }
+            }
+        ];
+
+        let yearsHtml = '';
+        for(let i=2026; i>=1978; i--) {
+            yearsHtml += `<option value="${i}">${i}</option>`;
+        }
+
+        const container = document.getElementById('books-list');
+        books.forEach(book => {
+            container.innerHTML += `
+                <div class="book-item ${book.color}">
+                    <div class="actions-container">
+                        <select class="year-select" id="y-${book.id}" onchange="document.getElementById('btn-${book.id}').disabled = !this.value">
+                            <option value="">সাল</option>${yearsHtml}
+                        </select>
+                        <button class="download-btn" id="btn-${book.id}" disabled onclick="downloadBook('${book.id}')">ডাউনলোড</button>
+                    </div>
+                    <div class="book-names">
+                        <span class="book-bn">${book.bn}</span>
+                        <span class="book-ar">${book.ar}</span>
+                    </div>
+                </div>`;
+        });
+
+        function downloadBook(bookId) {
+            const selectedYear = document.getElementById('y-' + bookId).value;
+            const book = books.find(b => b.id === bookId);
+            
+            if (book.links && book.links[selectedYear]) {
+                window.open(book.links[selectedYear], '_blank');
+            } else {
+                alert(book.bn + " এর " + selectedYear + " সালের প্রশ্ন এখনো যুক্ত করা হয়নি।");
+            }
+        }
+    </script>
+</body>
+</html>

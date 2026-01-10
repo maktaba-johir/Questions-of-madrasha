@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল হাইআতুল উলয়া - ডাউনলোড সেন্টার</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --gold-grad: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 40px 0; color: #fff; direction: rtl; overflow-x: hidden;
+        }
+
+        /* ধোঁয়া ও বেলুন ইফেক্ট */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 200%; height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png"); opacity: 0.15;
+            animation: smokeMove 80s linear infinite; z-index: -1;
+        }
+        @keyframes smokeMove { from { transform: translate(0, 0); } to { transform: translate(-20%, -20%); } }
+
+        .balloon {
+            position: fixed; bottom: -100px; width: 40px; height: 55px;
+            border-radius: 50%; opacity: 0.6; animation: float 18s linear infinite; z-index: 0;
+        }
+        @keyframes float { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-120vh) rotate(35deg); } }
+
+        .container {
+            position: relative; z-index: 10; background: var(--glass-bg);
+            backdrop-filter: blur(20px); padding: 30px; border-radius: 35px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); max-width: 800px; width: 92%;
+            border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;
+        }
+
+        /* শিরোনাম */
+        .header h1 {
+            font-size: 2.8rem; background: var(--gold-grad);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; margin-bottom: 5px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .subtitle { color: #00d4ff; margin-bottom: 20px; font-size: 1.2rem; }
+
+        /* কিতাবের উপরের মেসেজ বক্স */
+        .instructions-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px dashed #ffd700;
+            padding: 12px 20px;
+            border-radius: 15px;
+            margin: 0 auto 25px auto;
+            max-width: 600px;
+            font-size: 1.05rem;
+            color: #fff;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+
+        .instructions-box i { color: #ffd700; margin-left: 8px; }
+
+        /* কিতাব বার ডিজাইন */
+        .book-item {
+            position: relative; display: flex; align-items: center;
+            padding: 12px 20px; margin: 0 auto 15px auto;
+            border-radius: 18px; max-width: 650px;
+            transition: all 0.4s ease; overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .book-item::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.6s;
+        }
+        .book-item:hover::before { left: 100%; }
+        .book-item:hover { transform: translateY(-5px) scale(1.02); }
+
+        /* রঙিন গ্রেডিয়েন্টসমূহ */
+        .color-1 { background: linear-gradient(135deg, #FF6D00, #FF9800); }
+        .color-2 { background: linear-gradient(135deg, #1976D2, #42A5F5); }
+        .color-3 { background: linear-gradient(135deg, #388E3C, #66BB6A); }
+        .color-4 { background: linear-gradient(135deg, #7B1FA2, #BA68C8); }
+        .color-5 { background: linear-gradient(135deg, #D32F2F, #F44336); }
+        .color-6 { background: linear-gradient(135deg, #F57C00, #FFB300); }
+        .color-7 { background: linear-gradient(135deg, #512DA8, #7E57C2); }
+        .color-8 { background: linear-gradient(135deg, #00796B, #26A69A); }
+        .color-9 { background: linear-gradient(135deg, #6A1B9A, #AB47BC); }
+        .color-10 { background: linear-gradient(135deg, #C2185B, #EC407A); }
+
+        .actions-container { display: flex; gap: 8px; flex: 0 0 40%; direction: ltr; }
+        .year-select { padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.4); color: #fff; border: 1px solid #fff; font-size: 0.85rem; }
+        .download-btn { padding: 6px 14px; border-radius: 8px; background: #fff; color: #333; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
+        .download-btn:disabled { opacity: 0.4; }
+        .download-btn:hover:not(:disabled) { background: #e0e0e0; }
+
+        .book-names { flex: 1; text-align: right; padding-right: 15px; }
+        .book-bn { font-weight: 700; font-size: 1.1rem; color: #fff; display: block; }
+        .book-ar { font-size: 0.9rem; color: rgba(255,255,255,0.8); display: block; }
+
+        /* অথর কার্ড */
+        .author-card { margin-top: 35px; padding: 25px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .author-name { font-size: 1.6em; color: #fcc201; font-weight: bold; }
+        .author-info { color: #ddd; font-size: 0.95em; margin: 8px 0 20px; }
+
+        .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .social-btn {
+            padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #fff;
+            font-size: 0.85rem; font-weight: bold; transition: 0.3s; min-width: 110px;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .social-btn:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        .s-phone { background: linear-gradient(135deg, #1D976C, #93F9B9); }
+        .s-wa { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .s-tg { background: linear-gradient(135deg, #0088cc, #24bdff); }
+        .s-imo { background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC); }
+        .s-fb { background: linear-gradient(135deg, #1877f2, #3b5998); }
+        .s-gh { background: linear-gradient(135deg, #232526, #414345); }
+
+        .back-btn { text-decoration: none; color: #fcc201; border: 1px solid #fcc201; padding: 6px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; }
+
+        @media (max-width: 600px) { .book-item { flex-direction: column; } .book-names { text-align: center; } .actions-container { width: 100%; } }
+    </style>
+</head>
+<body>
+
+    <div class="balloon" style="left:5%; background:#ff4757;"></div>
+    <div class="balloon" style="left:50%; background:#2ed573; animation-delay:2s;"></div>
+    <div class="balloon" style="left:90%; background:#e056fd; animation-delay:4s;"></div>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← প্রধান মেনুতে ফিরে যান</a>
+
+        <div class="header">
+            <h1>আল হাইআতুল উলয়া</h1>
+            <div class="subtitle">الهيئة العليا للجامعات القومية بنغلاديش</div>
+        </div>
+
+        <div class="instructions-box">
+            <i class="fas fa-info-circle"></i>
+            নির্দিষ্ট সালের প্রশ্ন ডাউনলোড করতে কিতাবের পাশে <strong>"সাল"</strong> নির্বাচন করুন।
+        </div>
+
+        <div id="books-list"></div>
+
+        <div class="author-card">
+            <div class="author-name">মুফতী জহিরুল ইসলাম</div>
+            <div class="author-info">মুহাদ্দিস ও কম্পিউটার অপারেটর<br>জামি‘আতুল অলিজা ইসলামিয়া মাদরাসা, গাজীপুর।</div>
+            
+            <div class="social-links">
+                <a href="tel:8801742812210" class="social-btn s-phone">📞 ফোন</a>
+                <a href="https://wa.me/8801742812210" class="social-btn s-wa">💬 হোয়াটসঅ্যাপ</a>
+                <a href="https://t.me/johirarif" class="social-btn s-tg">✈️ টেলিগ্রাম</a>
+                <a href="https://fimo.onelink.me/?QQl/sm" class="social-btn s-imo">📱 ইমু</a>
+                <a href="https://www.facebook.com/786johir" class="social-btn s-fb">🔵 ফেসবুক</a>
+                <a href="https://github.com/maktaba-johir" class="social-btn s-gh">🐙 গিটহাব</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const books = [
+            { 
+                id: 'b1', bn: '০১। বুখারী-১ম', ar: 'صحيح البخاري - الجزء الأول', color: 'color-1',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1jgtvygcPXJ3wTFllISyMmafQvYseZpRt/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/1O6enydtWHexduN09Kg_bsdw3I3B5Mt8J/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'b2', bn: '০২। বুখারী-২য়', ar: 'صحيح البخاري - الجزء الثاني', color: 'color-2',
+                links: {
+                    "2023": "https://drive.google.com/file/d/159y77e_AEv5Kvp4Ca7RXSl7IQN5W6hkx/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/11hVPTyhcIjEAw1XTUB_NClxfTkuORugJ/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'm1', bn: '০৩। মুসলিম-১ম', ar: 'صحيح مسلم ـ الجزء الأول', color: 'color-3',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1tdGjtESiG095id6h8ZpanM3pPW_ZFM0C/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'm2', bn: '০৪। মুসলিম-২য়', ar: 'صحيح مسلم ـ الجزء الثاني', color: 'color-4',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1d7t3n5u3YhgjrwQ2ApAjykm9a8RoHzKR/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/1ZwMtlDweOWUwYXUss4ItDX0BohoFzTR7/view?usp=sharing"
+                }
+            },
+            { 
+                id: 't1', bn: '০৫। তিরমিযী-১ম', ar: 'جامع الترمذي - الجزء الأول', color: 'color-5',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1VkhfMtjOU8DK55YSK5tpd6V48yQ_UQ7z/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/1llST51a4GMZgZaBsevNgK0Bv-ZQc4MjE/view?usp=sharing"
+                }
+            },
+            { 
+                id: 't2', bn: '০৬। তিরমিযী-২য় ও শামায়েল', ar: 'جامع الترمذي ـ الجزء الثاني والشمائل', color: 'color-6',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1AMHpnY_bnSPctkgOsbp4RRHEycb_jeUR/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/16xAN_Xmvt7YqT06K-te5BgORQV-qctGI/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'ad', bn: '০৭। আবু দাউদ (কামেল)', ar: 'سنن أبي داود (كاملاً)', color: 'color-7',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1l_ga3XbE_eaHaVFP7Q2-HSlwEOAOJJKd/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/1JMLfc9ytmC-P4EVBazUvG3YlebRtLgKB/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'nm', bn: '০৮। নাসায়ী ও ইবনে মাজাহ', ar: 'سنن النسائي وابن ماجه', color: 'color-8',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1XQzT7fPwmrZYHGrxfFCM_J-vzFyNakm0/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/13NsdW-aNBKWVCbBjyCoDDMLLAoZlylCN/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'ts', bn: '০৯। ত্বাহবী শরীফ', ar: 'شرح معاني الآثار للطحاوي', color: 'color-9',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1oRHklOTBFyw9QtOAIkMb4qw042ZO_lHJ/view?usp=sharing",
+                    "2025": "https://drive.google.com/file/d/1ZWjCcFdHnf6Jc6JmgPN7i9-oCgbbaVLI/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'mm', bn: '১০। মুয়াত্তা মালেক ও মুহাম্মাদ', ar: 'موطأ مالك ومحمد', color: 'color-10',
+                links: {
+                    "2023": "https://drive.google.com/file/d/1yqa3HPk_ORzpdX7dT8jtL80z-4c089op/view?usp=sharing"
+                }
+            }
+        ];
+
+        let years = '';
+        for(let i=2026; i>=2017; i--) years += `<option value="${i}">${i}</option>`;
+
+        const container = document.getElementById('books-list');
+        books.forEach(book => {
+            container.innerHTML += `
+                <div class="book-item ${book.color}">
+                    <div class="actions-container">
+                        <select class="year-select" id="y-${book.id}" onchange="document.getElementById('btn-${book.id}').disabled = !this.value">
+                            <option value="">সাল</option>${years}
+                        </select>
+                        <button class="download-btn" id="btn-${book.id}" disabled onclick="downloadBook('${book.id}')">ডাউনলোড</button>
+                    </div>
+                    <div class="book-names">
+                        <span class="book-bn">${book.bn}</span>
+                        <span class="book-ar">${book.ar}</span>
+                    </div>
+                </div>`;
+        });
+
+        function downloadBook(bookId) {
+            const selectedYear = document.getElementById('y-' + bookId).value;
+            const book = books.find(b => b.id === bookId);
+            
+            if (book.links && book.links[selectedYear]) {
+                window.open(book.links[selectedYear], '_blank');
+            } else {
+                alert(book.bn + " এর " + selectedYear + " সালের প্রশ্ন এখনো যুক্ত করা হয়নি।");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শরহে বেকায়া জামাতের প্রশ্ন - ডাউনলোড</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --gold-grad: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #2d3436, #000000);
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 40px 0; color: #fff; direction: rtl; overflow-x: hidden;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 200%; height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png"); opacity: 0.15;
+            animation: smokeMove 80s linear infinite; z-index: -1;
+        }
+        @keyframes smokeMove { from { transform: translate(0, 0); } to { transform: translate(-20%, -20%); } }
+
+        .container {
+            position: relative; z-index: 10; background: var(--glass-bg);
+            backdrop-filter: blur(20px); padding: 30px; border-radius: 35px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); max-width: 850px; width: 92%;
+            border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem; background: var(--gold-grad);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; margin-bottom: 5px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .subtitle { color: #00d4ff; margin-bottom: 5px; font-size: 1.1rem; }
+        .subtitle-ar { font-size: 1.3rem; margin-bottom: 20px; color: #fcf6ba; }
+
+        .instructions-box {
+            background: rgba(255, 215, 0, 0.1); border: 2px dashed #ffd700;
+            padding: 12px 20px; border-radius: 15px; margin: 0 auto 25px auto;
+            max-width: 600px; font-size: 1rem; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
+
+        .book-item {
+            display: flex; align-items: center; 
+            padding: 12px 30px; margin: 0 0 15px auto;
+            border-radius: 18px; max-width: 700px;
+            transition: all 0.4s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: translateX(-20px);
+        }
+        .book-item:hover { transform: translateX(-20px) translateY(-3px) scale(1.01); }
+
+        .color-1 { background: linear-gradient(135deg, #1D976C, #93F9B9); color: #000; }
+        .color-2 { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+        .color-3 { background: linear-gradient(135deg, #e52d27, #b31217); }
+        .color-4 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+        .actions-container { display: flex; gap: 10px; flex: 0 0 35%; direction: ltr; }
+        .year-select { padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.4); color: #fff; border: 1px solid #fff; font-size: 0.85rem; width: 85px; }
+        .download-btn { padding: 6px 14px; border-radius: 8px; background: #fff; color: #333; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; }
+        .download-btn:disabled { opacity: 0.4; }
+
+        .book-names { flex: 1; text-align: right; padding-right: 20px; }
+        .book-bn { font-weight: 700; font-size: 1.05rem; display: block; }
+        .book-ar { font-size: 0.85rem; opacity: 0.9; display: block; }
+
+        .author-card { margin-top: 35px; padding: 25px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border-top: 1px solid rgba(255,255,255,0.2); }
+        .author-name { font-size: 1.6em; color: #fcc201; font-weight: bold; }
+        .author-info { color: #ddd; font-size: 0.95em; margin: 8px 0 20px; }
+
+        .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .social-btn {
+            padding: 10px 14px; border-radius: 12px; text-decoration: none; color: #fff;
+            font-size: 0.85rem; font-weight: bold; transition: 0.3s; min-width: 110px;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .s-phone { background: linear-gradient(135deg, #1D976C, #93F9B9); color: #000; }
+        .s-wa { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .s-tg { background: linear-gradient(135deg, #0088cc, #24bdff); }
+        .s-imo { background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC); }
+        .s-fb { background: linear-gradient(135deg, #1877f2, #3b5998); }
+        .s-gh { background: linear-gradient(135deg, #232526, #414345); }
+
+        .back-btn { text-decoration: none; color: #fcc201; border: 1px solid #fcc201; padding: 6px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; }
+
+        @media (max-width: 600px) { .book-item { transform: none; flex-direction: column; } .actions-container { width: 100%; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="bafaq.html" class="back-btn">← ফিরে যান</a>
+
+        <div class="header">
+            <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+            <div class="subtitle-ar">وفاق المدارس العربية بنجلاديش</div>
+            <div class="subtitle">শরহে বেকায়া জামাতের প্রশ্ন ডাউনলোড করুন</div>
+        </div>
+
+        <div class="instructions-box">
+            <i class="fas fa-info-circle"></i>
+            নির্দিষ্ট সালের প্রশ্ন ডাউনলোড করতে কিতাবের পাশে <strong>"সাল"</strong> নির্বাচন করুন।
+        </div>
+
+        <div id="books-list"></div>
+
+        <div class="author-card">
+            <div class="author-name">মুফতী জহিরুল ইসলাম</div>
+            <div class="author-info">মুহাদ্দিস ও কম্পিউটার অপারেটর<br>জামি‘আতুল অলিজা ইসলামিয়া মাদরাসা, গাজীপুর।</div>
+            
+            <div class="social-links">
+                <a href="tel:8801742812210" class="social-btn s-phone">📞 ফোন</a>
+                <a href="https://wa.me/8801742812210" class="social-btn s-wa">💬 হোয়াটসঅ্যাপ</a>
+                <a href="https://t.me/johirarif" class="social-btn s-tg">✈️ টেলিগ্রাম</a>
+                <a href="https://fimo.onelink.me/?QQl/sm" class="social-btn s-imo">📱 ইমু</a>
+                <a href="https://www.facebook.com/786johir" class="social-btn s-fb">🔵 ফেসবুক</a>
+                <a href="https://github.com/maktaba-johir" class="social-btn s-gh">🐙 গিটহাব</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const books = [
+            { 
+                id: 'sb1', bn: '০১। শরহে বেকায়া', ar: 'شرح الوقاية - الجزء الأول والثاني', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1ec2OmMKdjZlfMhPaQ2ZVB-tm-0EMhxlE/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1LjvuNRAALiqerUGPVMdXMoSbcqjNTX5i/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/10PdoIQ-p6G5xEf9uM0HcISPsibQlryhL/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/14YZOe1oVyHzO_KqiYRJyaT9Idf9KhYWH/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'na1', bn: '০২। নূরুল আনওয়ার', ar: 'نور الأنوار - شرح المنار', color: 'color-2',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1YFlGDdgfqwmkyERuOQNDM2olqpmKaqX9/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1TfN2ma_Mglg3Bt46TvLuatlvIM4VAYBu/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/10OftEHX-KYpSTWl4ar8A_Xm8vyeOlDCn/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1fxE9bgjg85eo3K0_z11WKXZ5xdoZlKHQ/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'mm1', bn: '০৩। মুখতাসারুল মাআনী', ar: 'مختصر المعاني', color: 'color-3',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1Y_B2XzDgdMYAppko4CMYT2rvXAJuU8gj/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1QQjWsbbIn9RXVngrOoLKpCEbYiRVIt66/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1nfXhDxQ6o11nTJpGT4oQH2jcGV5hxAv2/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/126ia1n2aIiYr1hx-vscJL5w3h3WM_EzK/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'db1', bn: '০৪। দুরুসুল বালাগাহ (বালিকা)', ar: 'دروس البلاغة (للبنات)', color: 'color-4',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1TWKK5Ty_iADVwVnFUm-1too7rBX0PZpz/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1c9d7VDuo2nzmEsamyErCpDvQxjQLWSZB/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1XsiPAxzxKd7UX-wH7t4u8X8_uH6Fl7O4/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1gVTt-qAMmwSaCgNc9B45rkAGq-dNmMIS/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'tk1', bn: '০৫। তরজমাতুল কুরআন', ar: 'ترجمة القرآن الكريم', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1DYN91x5vNA1tVJg0zKB75oWSZqGvkq3w/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1ojoun267STU7KBXUT11GMDN_bIlMUfyP/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1yOQgjvuYPyimm3IpTzA2hLat8_okZwIZ/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1rQsFUuA9Uipt3XKCU54vXdJlTYf-WuEI/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'mh1', bn: '০৬। মাকামাতুল হারীরী', ar: 'مقامات الحريري', color: 'color-2',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1UAwe_PFXAxilzMDQGiHPNeGQ3Dq2GSJx/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1IKpJeqG4uwN9nK1OJbue8HtliikCKF4q/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1lDYsDyQumED6ZgXYfsIVKc5P9RS7lxwg/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1I5SAMVPSg-zSBp7rIEWWcY-C4TrfNRwh/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'mk1', bn: '০৭। মুখতারাত (বালিকা)', ar: 'مختارات من أدب العرب (للبنات)', color: 'color-3',
+                links: {
+                    "2025": "https://drive.google.com/file/d/18qWCR88oPsSLeyoWD82zFA0zQ4VZt7bE/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1zy0ZERi82qBFSEhhnsOW89OzNvY4dqXb/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1Bw0nbeOkp9n2cHwnEk2ky8ysPouydElr/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1PozMp1X2ViRFiSaFTNathnbjc8wchhUI/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'sz1', bn: '০৮। সিরাজী (বালক)', ar: 'السراجي في الميراث (للبنين)', color: 'color-4',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1TyX61a2MEZ8f5gyYGps8A0gkdmMnCBqa/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1gdZkMt6C2mJqbiSNkq50ZrsbSgIo6OUa/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1_gCKKz0hvyC-xGkVeBZvMQrF6Zrmx3I7/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1Fn7oLQavKPCDNXuvu2GeBrB5Xyxu9ss2/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'in3', bn: '০৯। ইনশা-৩য়', ar: 'الطريق إلى الإنشاء ـ الجزء الثالث', color: 'color-1',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1XYI7Gkcdie2_HwH2nS7jw6eapk-169qj/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/17pZdXGfH2jjl3LQNtS_7RXVpU-8Rd8XN/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1-UF6NYitEflK03Ciermlcz62KOrTJTzH/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1MREAXFO_jvWVExjfT-PMC0AolSuK64_k/view?usp=sharing"
+                }
+            },
+            { 
+                id: 'kf1', bn: '১০। কাফিয়া (বালিকা)', ar: 'الكافية في النحو (للبنات)', color: 'color-2',
+                links: {
+                    "2025": "https://drive.google.com/file/d/1qblPvqHNNRSslLNnO4YPkFFDIMCnkgRi/view?usp=sharing",
+                    "2024": "https://drive.google.com/file/d/1S-fY1ZJKT9vOuEz39GIfj0hBWv3boCqB/view?usp=sharing",
+                    "2023": "https://drive.google.com/file/d/1HrFFoMkFup_s14IjcHr8zzEQTCuQ69bz/view?usp=sharing",
+                    "2022": "https://drive.google.com/file/d/1ZxKIJhP0Zp6aRSzYH-l21jWoMnB1cb41/view?usp=sharing"
+                }
+            }
+        ];
+
+        let yearsSelectHtml = '';
+        for(let i=2026; i>=1978; i--) {
+            yearsSelectHtml += `<option value="${i}">${i}</option>`;
+        }
+
+        const container = document.getElementById('books-list');
+        books.forEach(book => {
+            container.innerHTML += `
+                <div class="book-item ${book.color}">
+                    <div class="actions-container">
+                        <select class="year-select" id="y-${book.id}" onchange="document.getElementById('btn-${book.id}').disabled = !this.value">
+                            <option value="">সাল</option>${yearsSelectHtml}
+                        </select>
+                        <button class="download-btn" id="btn-${book.id}" disabled onclick="downloadBook('${book.id}')">ডাউনলোড</button>
+                    </div>
+                    <div class="book-names">
+                        <span class="book-bn">${book.bn}</span>
+                        <span class="book-ar">${book.ar}</span>
+                    </div>
+                </div>`;
+        });
+
+        function downloadBook(bookId) {
+            const selectedYear = document.getElementById('y-' + bookId).value;
+            const book = books.find(b => b.id === bookId);
+            
+            if (book.links && book.links[selectedYear]) {
+                window.open(book.links[selectedYear], '_blank');
+            } else {
+                alert(book.bn + " এর " + selectedYear + " সালের প্রশ্ন এখনো যুক্ত করা হয়নি।");
+            }
+        }
+    </script>
+</body>
+</html>

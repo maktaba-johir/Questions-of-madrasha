@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বেফাকুল মাদারিসিল আরাবিয়া - দাওরায়ে হাদীস</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --gold-grad: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex; justify-content: center; align-items: flex-start;
+            padding: 40px 0; color: #fff; direction: rtl; overflow-x: hidden;
+        }
+
+        /* ধোঁয়া ও বেলুন ইফেক্ট */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 200%; height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png"); opacity: 0.15;
+            animation: smokeMove 80s linear infinite; z-index: -1;
+        }
+        @keyframes smokeMove { from { transform: translate(0, 0); } to { transform: translate(-20%, -20%); } }
+
+        .balloon {
+            position: fixed; bottom: -100px; width: 40px; height: 55px;
+            border-radius: 50%; opacity: 0.4; animation: float 18s linear infinite; z-index: 0;
+        }
+        @keyframes float { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-120vh) rotate(35deg); } }
+
+        .container {
+            position: relative; z-index: 10; background: var(--glass-bg);
+            backdrop-filter: blur(20px); padding: 30px; border-radius: 35px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); max-width: 800px; width: 92%;
+            border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;
+        }
+
+        /* শিরোনাম */
+        .header h1 {
+            font-size: 2.2rem; background: var(--gold-grad);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; margin-bottom: 5px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .subtitle { color: #fcf6ba; margin-bottom: 20px; font-size: 1.2rem; }
+
+        .instructions-box {
+            background: rgba(255, 215, 0, 0.1); border: 2px dashed #ffd700;
+            padding: 12px 20px; border-radius: 15px; margin: 0 auto 25px auto;
+            max-width: 600px; font-size: 1.05rem; color: #fff; animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+
+        /* কিতাব বার */
+        .book-item {
+            position: relative; display: flex; align-items: center;
+            padding: 12px 20px; margin: 0 auto 15px auto;
+            border-radius: 18px; max-width: 650px;
+            transition: all 0.4s ease; overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .book-item:hover { transform: translateY(-5px) scale(1.02); }
+
+        .color-1 { background: linear-gradient(135deg, #FF6D00, #FF9800); }
+        .color-2 { background: linear-gradient(135deg, #1976D2, #42A5F5); }
+        .color-3 { background: linear-gradient(135deg, #388E3C, #66BB6A); }
+        .color-4 { background: linear-gradient(135deg, #7B1FA2, #BA68C8); }
+        .color-5 { background: linear-gradient(135deg, #D32F2F, #F44336); }
+        .color-6 { background: linear-gradient(135deg, #F57C00, #FFB300); }
+        .color-7 { background: linear-gradient(135deg, #512DA8, #7E57C2); }
+        .color-8 { background: linear-gradient(135deg, #00796B, #26A69A); }
+        .color-9 { background: linear-gradient(135deg, #6A1B9A, #AB47BC); }
+        .color-10 { background: linear-gradient(135deg, #C2185B, #EC407A); }
+
+        .actions-container { display: flex; gap: 8px; flex: 0 0 40%; direction: ltr; }
+        .year-select { padding: 6px; border-radius: 8px; background: rgba(0,0,0,0.4); color: #fff; border: 1px solid #fff; font-size: 0.85rem; }
+        .download-btn { padding: 6px 14px; border-radius: 8px; background: #fff; color: #333; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
+        .download-btn:disabled { opacity: 0.4; }
+
+        .book-names { flex: 1; text-align: right; padding-right: 15px; }
+        .book-bn { font-weight: 700; font-size: 1.1rem; color: #fff; display: block; }
+        .book-ar { font-size: 0.9rem; color: rgba(255,255,255,0.8); display: block; }
+
+        .back-btn { text-decoration: none; color: #fcc201; border: 1px solid #fcc201; padding: 6px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; }
+
+        @media (max-width: 600px) { .book-item { flex-direction: column; } .book-names { text-align: center; margin-bottom: 10px; } .actions-container { width: 100%; justify-content: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="balloon" style="left:5%; background:#ff4757;"></div>
+    <div class="balloon" style="left:50%; background:#2ed573; animation-delay:2s;"></div>
+    <div class="balloon" style="left:90%; background:#e056fd; animation-delay:4s;"></div>
+
+    <div class="container">
+        <a href="bafaq.html" class="back-btn">← বেফাক মেনুতে ফিরে যান</a>
+
+        <div class="header">
+            <h1>বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ</h1>
+            <div class="subtitle">মারহালা: তাকমীল (দাওরায়ে হাদীস)</div>
+        </div>
+
+        <div class="instructions-box">
+            <i class="fas fa-info-circle"></i>
+            ১৯৭৮ থেকে ২০১৬ পর্যন্ত বেফাক বোর্ডের প্রশ্ন ডাউনলোড করতে <strong>"সাল"</strong> নির্বাচন করুন।
+        </div>
+
+        <div id="books-list"></div>
+    </div>
+
+    <script>
+        const books = [
+            { id: 'b1', bn: '০১। বুখারী-১ম', ar: 'صحيح البخاري - الجزء الأول', color: 'color-1', links: {} },
+            { id: 'b2', bn: '০২। বুখারী-২য়', ar: 'صحيح البخاري - الجزء الثاني', color: 'color-2', links: {} },
+            { id: 'm1', bn: '০৩। মুসলিম-১ম', ar: 'صحيح مسلم ـ الجزء الأول', color: 'color-3', links: {} },
+            { id: 'm2', bn: '০৪। মুসলিম-২য়', ar: 'صحيح مسلم ـ الجزء الثاني', color: 'color-4', links: {} },
+            { id: 't1', bn: '০৫। তিরমিযী-১ম', ar: 'جامع الترمذي - الجزء الأول', color: 'color-5', links: {} },
+            { id: 't2', bn: '০৬। তিরমিযী-২য় ও শামায়েল', ar: 'جامع الترمذي ـ الجزء الثاني والشمائل', color: 'color-6', links: {} },
+            { id: 'ad', bn: '০৭। আবু দাউদ', ar: 'سنن أبي داود', color: 'color-7', links: {} },
+            { id: 'nm', bn: '০৮। নাসায়ী ও ইবনে মাজাহ', ar: 'سنن النسائي وابن ماجه', color: 'color-8', links: {} },
+            { id: 'ts', bn: '০৯। ত্বাহবী শরীফ', ar: 'شرح معاني الآثار للطحاوي', color: 'color-9', links: {} },
+            { id: 'mm', bn: '১০। মুয়াত্তা মালেক ও মুহাম্মাদ', ar: 'موطأ مالك ومحمد', color: 'color-10', links: {} }
+        ];
+
+        // সাল নির্বাচন (১৯৭৮ থেকে ২০১৬)
+        let years = '';
+        for(let i=2016; i>=1978; i--) years += `<option value="${i}">${i}</option>`;
+
+        const container = document.getElementById('books-list');
+        books.forEach(book => {
+            container.innerHTML += `
+                <div class="book-item ${book.color}">
+                    <div class="actions-container">
+                        <select class="year-select" id="y-${book.id}" onchange="document.getElementById('btn-${book.id}').disabled = !this.value">
+                            <option value="">সাল</option>${years}
+                        </select>
+                        <button class="download-btn" id="btn-${book.id}" disabled onclick="downloadBook('${book.id}')">ডাউনলোড</button>
+                    </div>
+                    <div class="book-names">
+                        <span class="book-bn">${book.bn}</span>
+                        <span class="book-ar">${book.ar}</span>
+                    </div>
+                </div>`;
+        });
+
+        function downloadBook(bookId) {
+            const selectedYear = document.getElementById('y-' + bookId).value;
+            const book = books.find(b => b.id === bookId);
+            
+            if (book.links && book.links[selectedYear]) {
+                window.open(book.links[selectedYear], '_blank');
+            } else {
+                alert(book.bn + " এর " + selectedYear + " সালের বেফাক বোর্ডের প্রশ্ন এখনো যুক্ত করা হয়নি।");
+            }
+        }
+    </script>
+</body>
+</html>
