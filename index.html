@@ -6,34 +6,40 @@
     <title>مخزن الأسئلة - سؤال و جواب</title>
     <style>
         /* ===== Base Style ===== */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            height: 100vh;
-            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh; /* height এর বদলে min-height ব্যবহার করা হয়েছে */
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
-            direction: rtl; /* Added for Arabic text direction */
+            direction: rtl;
+            overflow-x: hidden; /* ডানে-বামে নাড়াচাড়া বন্ধ করবে */
+            padding: 20px; /* মোবাইলে চারদিকে গ্যাপ রাখবে */
         }
 
         /* ===== Floating Smoke ===== */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed; /* absolute এর বদলে fixed যাতে স্ক্রল করলেও স্মোক থাকে */
+            top: 0; left: 0;
             width: 200%;
             height: 200%;
-            background: url("https://i.imgur.com/8IuucQZ.png" );
+            background: url("https://i.imgur.com/8IuucQZ.png");
             opacity: 0.15;
             animation: smoke 60s linear infinite;
-            z-index: -1; /* Ensure smoke is behind content */
+            z-index: -1;
         }
 
         @keyframes smoke {
-            from { transform: translateX(0) translateY(0); }
-            to   { transform: translateX(-500px) translateY(-300px); }
+            from { transform: translate(0, 0); }
+            to   { transform: translate(-20%, -20%); }
         }
 
         /* ===== Main Box ===== */
@@ -41,130 +47,101 @@
             text-align: center;
             z-index: 10;
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-            max-width: 600px;
-            width: 90%;
-            backdrop-filter: blur(5px);
+            padding: 40px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: auto; /* কন্টেন্ট একদম সেন্টারে রাখবে */
         }
 
         /* ===== Heading ===== */
         h1 {
-            font-size: 48px;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(255,255,255,0.6);
-            color: #fff; /* Ensure heading color is white */
+            font-size: clamp(28px, 8vw, 42px); /* স্ক্রিন অনুযায়ী সাইজ পরিবর্তন হবে */
+            margin-bottom: 35px;
+            font-weight: 800;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(to bottom, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ===== Buttons Container ===== */
         .buttons-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-            max-width: 360px;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
         }
 
         /* ===== Buttons ===== */
         .btn {
-            padding: 16px;
+            padding: 18px;
             font-size: 18px;
+            font-weight: 600;
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;
-            background: linear-gradient(45deg, #ff512f, #dd2476);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: block; /* Ensure buttons take full width in grid */
-        }
-
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.3);
-            transition: 0.4s;
-        }
-
-        .btn:hover::before {
-            left: 0;
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            filter: brightness(1.1);
         }
 
-        /* ===== Different Colors for Buttons ===== */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ===== Button Colors ===== */
         .btn:nth-child(1) { background: linear-gradient(45deg, #ff512f, #dd2476); }
         .btn:nth-child(2) { background: linear-gradient(45deg, #36d1dc, #5b86e5); }
         .btn:nth-child(3) { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .btn:nth-child(4) { background: linear-gradient(45deg, #f7971e, #ffd200); }
 
-        /* ===== Floating Balloons ===== */
+        /* ===== Balloons ===== */
         .balloon {
-            position: absolute;
+            position: fixed; /* স্ক্রল করলেও যেন পজিশন ঠিক থাকে */
             bottom: -150px;
-            width: 60px;
-            height: 80px;
+            width: 40px;
+            height: 60px;
             border-radius: 50%;
-            opacity: 0.6;
-            animation: float 20s linear infinite;
-            z-index: -1; /* Ensure balloons are behind content */
+            opacity: 0.4;
+            animation: float 15s linear infinite;
+            z-index: -1;
         }
 
         @keyframes float {
-            from { transform: translateY(0); }
-            to   { transform: translateY(-120vh); }
+            from { transform: translateY(0) rotate(0deg); }
+            to   { transform: translateY(-120vh) rotate(20deg); }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-            .container {
-                padding: 30px;
-            }
-            .btn {
-                font-size: 16px;
-                padding: 14px;
-            }
-        }
-
+        /* Mobile Adjustments */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 28px;
-                margin-bottom: 30px;
-            }
             .container {
-                padding: 20px;
-            }
-            .buttons-container {
-                gap: 15px;
+                padding: 30px 15px;
             }
             .btn {
-                font-size: 14px;
-                padding: 12px;
+                padding: 15px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Balloons -->
-    <div class="balloon" style="left:10%; background:red; animation-delay:0s;"></div>
-    <div class="balloon" style="left:30%; background:yellow; animation-delay:5s;"></div>
-    <div class="balloon" style="left:50%; background:blue; animation-delay:2s;"></div>
-    <div class="balloon" style="left:70%; background:green; animation-delay:7s;"></div>
-    <div class="balloon" style="left:90%; background:pink; animation-delay:3s;"></div>
+    <div class="balloon" style="left:5%; background:red; animation-delay:0s;"></div>
+    <div class="balloon" style="left:25%; background:yellow; animation-delay:4s;"></div>
+    <div class="balloon" style="left:45%; background:blue; animation-delay:2s;"></div>
+    <div class="balloon" style="left:65%; background:green; animation-delay:6s;"></div>
+    <div class="balloon" style="left:85%; background:pink; animation-delay:1s;"></div>
 
     <div class="container">
         <h1>مخزن الأسئلة</h1>
