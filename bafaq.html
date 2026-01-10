@@ -6,23 +6,27 @@
     <title>বেফাকুল মাদারিসিল আরাবিয়া - প্রশ্ন ব্যাংক</title>
     <style>
         /* ===== Base Style ===== */
+        * { box-sizing: border-box; }
+
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
             direction: rtl; 
+            padding: 20px;
+            overflow-x: hidden;
         }
 
         /* ===== Floating Smoke ===== */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
+            top: 0; left: 0;
             width: 200%;
             height: 200%;
             background: url("https://i.imgur.com/8IuucQZ.png");
@@ -32,8 +36,8 @@
         }
 
         @keyframes smoke {
-            from { transform: translateX(0) translateY(0); }
-            to   { transform: translateX(-500px) translateY(-300px); }
+            from { transform: translate(0, 0); }
+            to   { transform: translate(-20%, -20%); }
         }
 
         /* ===== Main Box ===== */
@@ -42,13 +46,14 @@
             text-align: center;
             z-index: 10;
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            max-width: 650px;
-            width: 92%;
+            max-width: 550px; /* পিসিতে সুন্দর দেখানোর জন্য কিছুটা কমানো হয়েছে */
+            width: 100%;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.15);
+            margin: auto;
         }
 
         /* ফিরে যান বাটন */
@@ -56,71 +61,81 @@
             text-decoration: none;
             color: #fcc201;
             border: 1px solid #fcc201;
-            padding: 6px 20px;
+            padding: 8px 20px;
             border-radius: 50px;
             display: inline-block;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 14px;
             transition: 0.3s;
         }
         .back-btn:hover { background: #fcc201; color: #000; }
 
         /* ===== শিরোনাম ডিজাইন ===== */
-        .header { margin-bottom: 30px; }
+        .header { margin-bottom: 25px; }
         h1 {
-            font-size: 30px; margin: 0; font-weight: 800;
+            font-size: clamp(20px, 6vw, 28px);
+            margin: 0; font-weight: 800;
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
-        .subtitle-ar { font-size: 24px; margin-top: 8px; color: #fcf6ba; opacity: 0.9; }
+        .subtitle-ar { 
+            font-size: clamp(16px, 5vw, 22px); 
+            margin-top: 5px; 
+            color: #fcf6ba; 
+            opacity: 0.9; 
+        }
 
         /* ===== Buttons Container ===== */
         .buttons-container {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 12px;
-            max-width: 420px;
-            margin: auto;
+            width: 100%;
         }
 
         /* ===== Buttons & Tooltip Style ===== */
         .btn {
             padding: 14px;
-            font-size: 17px;
+            font-size: 16px;
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
+            border-radius: 12px; /* মোবাইলে স্কোয়ারিশ রাউন্ড বেশি ভালো লাগে */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
             position: relative;
             display: block;
             font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            filter: brightness(1.1);
         }
 
-        /* টুলটিপ মেসেজ ডিজাইন */
+        /* টুলটিপ মেসেজ - মোবাইলের জন্য অপ্টিমাইজড */
         .btn[data-info]::after {
             content: attr(data-info);
             position: absolute;
-            bottom: 120%;
+            bottom: 125%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             color: #fcc201;
-            padding: 8px 15px;
-            border-radius: 10px;
-            font-size: 13px;
-            white-space: nowrap;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            width: 90%; /* মোবাইলে যাতে স্ক্রিনের বাইরে না যায় */
+            max-width: 250px;
+            white-space: normal; /* লম্বা লেখা নিচে নেমে আসবে */
             opacity: 0;
             visibility: hidden;
             transition: 0.3s;
             z-index: 100;
             border: 1px solid #fcc201;
+            pointer-events: none;
         }
         .btn[data-info]:hover::after {
             opacity: 1;
@@ -128,24 +143,24 @@
         }
 
         /* রঙের ভিন্নতা */
-        .btn:nth-child(1) { background: linear-gradient(45deg, #00c6ff, #0072ff); } /* দাওরা */
-        .btn:nth-child(2) { background: linear-gradient(45deg, #ff512f, #dd2476); } /* মেশকাত */
-        .btn:nth-child(3) { background: linear-gradient(45deg, #36d1dc, #5b86e5); } /* শরহে বেকায়া */
-        .btn:nth-child(4) { background: linear-gradient(45deg, #11998e, #38ef7d); } /* কাফিয়া */
-        .btn:nth-child(5) { background: linear-gradient(45deg, #f7971e, #ffd200); } /* নাহবেমীর */
-        .btn:nth-child(6) { background: linear-gradient(45deg, #8e44ad, #c33764); } /* তাইসীর */
+        .btn:nth-child(1) { background: linear-gradient(45deg, #00c6ff, #0072ff); }
+        .btn:nth-child(2) { background: linear-gradient(45deg, #ff512f, #dd2476); }
+        .btn:nth-child(3) { background: linear-gradient(45deg, #36d1dc, #5b86e5); }
+        .btn:nth-child(4) { background: linear-gradient(45deg, #11998e, #38ef7d); }
+        .btn:nth-child(5) { background: linear-gradient(45deg, #f7971e, #ffd200); }
+        .btn:nth-child(6) { background: linear-gradient(45deg, #8e44ad, #c33764); }
 
         /* বেলুন ইফেক্ট */
         .balloon {
-            position: absolute; bottom: -150px; width: 60px; height: 80px;
-            border-radius: 50%; opacity: 0.3; animation: float 20s linear infinite; z-index: -1;
+            position: fixed; bottom: -150px; width: 40px; height: 60px;
+            border-radius: 50%; opacity: 0.2; animation: float 15s linear infinite; z-index: -1;
         }
         @keyframes float { from { transform: translateY(0); } to { transform: translateY(-120vh); } }
 
         @media (max-width: 480px) {
-            h1 { font-size: 22px; }
-            .subtitle-ar { font-size: 18px; }
+            .container { padding: 25px 15px; }
             .btn { font-size: 15px; padding: 12px; }
+            .back-btn { padding: 6px 15px; font-size: 13px; }
         }
     </style>
 </head>
@@ -166,10 +181,10 @@
         </div>
 
         <div class="buttons-container">
-            <a href="1.daura.html" class="btn" data-info=" ২০১৭ সালে দাওরার পরীক্ষা হাইআতে রূপান্তরিত হয়।">০১। দাওরায়ে হাদীস</a>
+            <a href="1.daura.html" class="btn" data-info="২০১৭ সালে দাওরার পরীক্ষা হাইআতে রূপান্তরিত হয়।">০১। দাওরায়ে হাদীস</a>
             <a href="2.meskat.html" class="btn">০২। মেশকাত জামাত</a>
             <a href="3.sorhe_bekaea.html" class="btn">০৩। শরহে বেকায়া জামাত</a>
-            <a href="4.kafiea.html" class="btn" data-info="২০২৫সালে ৪৮তম বেফাক পরীক্ষায় এটি ১ম বার বেফাক বোর্ড কর্তৃক পরীক্ষা নেওয়া শুরু হয়।">০৪। কাফিয়া জামাত</a>
+            <a href="4.kafiea.html" class="btn" data-info="২০২৫ সালে ৪৮তম বেফাক পরীক্ষায় এটি ১ম বার বেফাক বোর্ড কর্তৃক পরীক্ষা নেওয়া শুরু হয়।">০৪। কাফিয়া জামাত</a>
             <a href="5.nahbemir.html" class="btn">০৫। নাহবেমীর জামাত</a>
             <a href="6.tysir.html" class="btn">০৬। তাইসীর জামাত</a>
         </div>
