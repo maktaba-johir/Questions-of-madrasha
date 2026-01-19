@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسئلة اللجان الإقليمية - আঞ্চলিক বোর্ডের প্রশ্ন</title>
+    <style>
+        /* ===== Base Style ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* নতুন গ্রেডিয়েন্ট কালার */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            direction: rtl;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* ===== Floating Smoke ===== */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 200%;
+            height: 200%;
+            background: url("https://i.imgur.com/8IuucQZ.png");
+            opacity: 0.15;
+            animation: smoke 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes smoke {
+            from { transform: translate(0, 0); }
+            to   { transform: translate(-20%, -20%); }
+        }
+
+        /* ===== Main Box ===== */
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: auto;
+        }
+
+        /* ===== Heading ===== */
+        h1 {
+            font-size: clamp(24px, 6vw, 36px);
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            color: #fff;
+        }
+
+        h2 {
+            font-size: clamp(18px, 5vw, 24px);
+            margin-bottom: 35px;
+            font-weight: 400;
+            color: #f0f0f0;
+            opacity: 0.9;
+        }
+
+        /* ===== Buttons Container ===== */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            filter: brightness(1.2);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ===== Button Colors ===== */
+        /* ময়মনসিংহ - বেগুনি-নীল গ্রেডিয়েন্ট */
+        .btn-mymensingh { background: linear-gradient(45deg, #6a11cb, #2575fc); }
+        /* গাজীপুর - লাল-কমলা গ্রেডিয়েন্ট */
+        .btn-gazipur { background: linear-gradient(45deg, #f80759, #bc4e9c); }
+        /* টাঙ্গাইল - সবুজ গ্রেডিয়েন্ট */
+        .btn-tangail { background: linear-gradient(45deg, #00b09b, #96c93d); }
+
+        /* ===== Balloons ===== */
+        .balloon {
+            position: fixed;
+            bottom: -150px;
+            width: 40px;
+            height: 60px;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0) rotate(0deg); }
+            to   { transform: translateY(-120vh) rotate(20deg); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+            }
+            .btn {
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="balloon" style="left:10%; background:cyan; animation-delay:0s;"></div>
+    <div class="balloon" style="left:30%; background:magenta; animation-delay:5s;"></div>
+    <div class="balloon" style="left:50%; background:orange; animation-delay:2s;"></div>
+    <div class="balloon" style="left:70%; background:lime; animation-delay:8s;"></div>
+    <div class="balloon" style="left:90%; background:white; animation-delay:3s;"></div>
+
+    <div class="container">
+        <h1>أسئلة اللجان الإقليمية</h1>
+        <h2>আঞ্চলিক বোর্ডের প্রশ্নসমূহ</h2>
+
+        <div class="buttons-container">
+            <a href="mymonsin.html" class="btn btn-mymensingh">ইত্তেফাক প্রশ্ন (ময়মনসিংহ)</a>
+            <a href="Gazipur.html" class="btn btn-gazipur">ইত্তেহাদ প্রশ্ন (গাজীপুর)</a>
+            <a href="tangail.html" class="btn btn-tangail">ইত্তেফাক প্রশ্ন (টাঙ্গাইল)</a>
+        </div>
+        
+        <br>
+        <a href="index.html" style="color: #ccc; text-decoration: none; font-size: 14px;">← প্রধান পাতায় ফিরে যান</a>
+    </div>
+
+</body>
+</html>
