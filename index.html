@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مخزن الأسئلة - سؤال و جواب</title>
+    <!-- Font Awesome আইকন ব্যবহারের জন্য লিঙ্ক -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- গুগল ফন্ট (বাংলা লেখার জন্য ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
         /* ===== Base Style ===== */
         * {
@@ -12,26 +19,26 @@
 
         body {
             margin: 0;
-            min-height: 100vh; /* height এর বদলে min-height ব্যবহার করা হয়েছে */
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364 );
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
             direction: rtl;
-            overflow-x: hidden; /* ডানে-বামে নাড়াচাড়া বন্ধ করবে */
-            padding: 20px; /* মোবাইলে চারদিকে গ্যাপ রাখবে */
+            overflow-x: hidden;
+            padding: 20px;
         }
 
         /* ===== Floating Smoke ===== */
         body::before {
             content: "";
-            position: fixed; /* absolute এর বদলে fixed যাতে স্ক্রল করলেও স্মোক থাকে */
+            position: fixed;
             top: 0; left: 0;
             width: 200%;
             height: 200%;
-            background: url("https://i.imgur.com/8IuucQZ.png");
+            background: url("https://i.imgur.com/8IuucQZ.png" );
             opacity: 0.15;
             animation: smoke 60s linear infinite;
             z-index: -1;
@@ -54,12 +61,12 @@
             width: 100%;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: auto; /* কন্টেন্ট একদম সেন্টারে রাখবে */
+            margin: auto;
         }
 
         /* ===== Heading ===== */
         h1 {
-            font-size: clamp(28px, 8vw, 42px); /* স্ক্রিন অনুযায়ী সাইজ পরিবর্তন হবে */
+            font-size: clamp(28px, 8vw, 42px);
             margin-bottom: 35px;
             font-weight: 800;
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -88,6 +95,7 @@
             display: block;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-family: 'Hind Siliguri', sans-serif; /* বাংলা বাটন লেখার জন্য */
         }
 
         .btn:hover {
@@ -106,9 +114,44 @@
         .btn:nth-child(3) { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .btn:nth-child(4) { background: linear-gradient(45deg, #f7971e, #ffd200); }
 
+        /* ===== দাওয়াত ও ফিডব্যাক সেকশন ===== */
+        .feedback-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Hind Siliguri', sans-serif; /* বাংলা ফন্টের জন্য */
+            direction: ltr; /* এই সেকশনের লেখা বাম থেকে ডানে হবে */
+        }
+
+        .feedback-section p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: justify;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            color: #fff;
+            font-size: 26px;
+            text-decoration: none;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.2) rotate(10deg);
+            color: #38ef7d; /* হোভার করলে সবুজ হবে */
+        }
+        
         /* ===== Balloons ===== */
         .balloon {
-            position: fixed; /* স্ক্রল করলেও যেন পজিশন ঠিক থাকে */
+            position: fixed;
             bottom: -150px;
             width: 40px;
             height: 60px;
@@ -152,6 +195,36 @@
             <a href="unsol.html" class="btn">০৩। আঞ্চলিক বোর্ডের প্রশ্ন</a>
             <a href="madrasha.html" class="btn">০৪। মাদরাসার প্রশ্ন</a>
         </div>
+
+        <!-- ===== দাওয়াত ও ফিডব্যাক সেকশন শুরু ===== -->
+        <div class="feedback-section">
+            <p>
+                <b>একটি নিবেদন ও আগামীর পথে…</b>  
+  
+
+                আসসালামু আলাইকুম। দ্বীনি ইলম অর্জনের এই দীর্ঘ সফরে একজন ক্ষুদ্র খাদেম হিসেবে আপনাদের জন্য "মখযানে আসইলা" (প্রশ্নভান্ডার) তৈরি করার চেষ্টা করেছি। যদি এই ক্ষুদ্র প্রচেষ্টা দ্বারা কোনো طالب العلم (জ্ঞান অন্বেষণকারী) সামান্যতমও উপকৃত হন, তবে আমার এই শ্রম সার্থক।  
+  
+
+                যদি এই কাজটিকে আপনারা উপকারী মনে করেন, অথবা যদি চান যে এ ধরনের উদ্যোগ অব্যাহত থাকুক, তবে আপনার একটি লাইক, একটি কমেন্ট বা একটি শেয়ার আমার জন্য অমূল্য অনুপ্রেরণা হয়ে থাকবে। এটি আমাকে জানিয়ে দেবে যে, আমার এই প্রচেষ্টা বৃথা যায়নি।  
+  
+
+                <b>একটি সুসংবাদ:</b>
+                আল্লাহ যদি চান, এই রমজানের মধ্যেই আমার সবচেয়ে আবেগের একটি প্রকল্প— <b>"ইলমুস সরফ"</b>-এর উপর একটি বিস্তারিত সফটওয়্যার নিয়ে আসার ইচ্ছা রাখি। আরবী ভাষার ভিত্তি মজবুত করার জন্য "সরফ"-এর জ্ঞান অপরিহার্য। আমার লক্ষ্য হলো, গতানুগতিক অনেক কিতাবের চেয়েও বেশি তথ্যবহুল এবং সহজবোধ্য একটি টুল তৈরি করা, যা শুধুমাত্র HTML দিয়ে বানানো হবে, যেন যেকোনো ডিভাইসে এটি স্বাচ্ছন্দ্যে ব্যবহার করা যায়।  
+  
+
+                আপনাদের একটি ছোট্ট ফিডব্যাকই পারে এই স্বপ্নগুলোকে বাস্তবে রূপ দেওয়ার সাহস জোগাতে। আমি আপনাদের দু'আ এবং মতামতের প্রত্যাশী।
+            </p>
+            <div class="social-buttons">
+                <!-- ফেসবুক গ্রুপের লিঙ্ক -->
+                <a href="https://m.me/j/AbZqWIxKx7Jzdja6/" target="_blank" class="social-btn" title="ফেসবুক গ্রুপে যোগ দিন"><i class="fab fa-facebook"></i></a>
+                <!-- হোয়াটসঅ্যাপ গ্রুপের লিঙ্ক -->
+                <a href="https://chat.whatsapp.com/KedNqOL8SQsI8el8YVfnzJ" target="_blank" class="social-btn" title="হোয়াটসঅ্যাপ গ্রুপে যোগ দিন"><i class="fab fa-whatsapp"></i></a>
+                <!-- ইমেইল লিঙ্ক -->
+                <a href="mailto:olizaoliza2001@gmail.com" class="social-btn" title="মতামত জানাতে ইমেইল করুন"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <!-- ===== দাওয়াত ও ফিডব্যাক সেকশন শেষ ===== -->
+
     </div>
 
 </body>
