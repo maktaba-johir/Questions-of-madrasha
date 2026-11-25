@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maktaba-johir.github.io/Questions-of-madrasha/sitemap.xml
