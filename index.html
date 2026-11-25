@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مخزن الأسئلة - سؤال و جواب</title>
+    
+    <!-- প্রধান টাইটেল ও SEO মেটা ট্যাগ -->
+    <title>মখযানে আসইলা (مخزن الأسئلة) - বেফাক ও হাইআতুল উলয়া প্রশ্নভান্ডার | Befaq Question Bank</title>
+    <meta name="description" content="বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ (বেফাক), আল-হাইআতুল উলয়া লিল-জামিআতিল কওমিয়া বাংলাদেশ এবং আঞ্চলিক বোর্ডের দাওরায়ে হাদীস, মিশকাত (ফযীলত), শরহে বেকায়া (সানাবিয়া উলইয়া), কাফিয়া, শরহে জামী, নাহবেমীর ও তাইসীর জামাতের বিগত বছরের সকল প্রশ্নপত্র ও পিডিএফ সংকলন।">
+    <meta name="keywords" content="মখযানে আসইলা, مخزن الأسئلة, বেফাক প্রশ্ন, শরহে বেকায়া বেফাক প্রশ্ন, হাইআতুল উলয়া প্রশ্ন, দাওরায়ে হাদীস প্রশ্ন, মিশকাত প্রশ্ন, ফযীলত প্রশ্ন, সানাবিয়া উলইয়া প্রশ্ন, কাফিয়া প্রশ্ন, শরহে জামী প্রশ্ন, নাহবেমীর প্রশ্ন, তাইসীর প্রশ্ন, মুতাওয়াসসিতাহ প্রশ্ন, ইবতিদাইয়্যাহ প্রশ্ন, নুরুল আনোয়ার প্রশ্ন, উসূলুশ শাশী প্রশ্ন, হেদায়া প্রশ্ন, জালালাইন প্রশ্ন, মাকামাতে হারীরী প্রশ্ন, মুখতাসারুল মাআনি প্রশ্ন, বেফাক প্রশ্ন ব্যাংক, কওমি মাদরাসা প্রশ্ন, Befaq question bank, Sharhe Bekaya question, Al Haiatul Ulya question">
+    <meta name="author" content="Maktaba Johir">
+    <meta name="robots" content="index, follow">
+
+    <!-- সোশ্যাল মিডিয়া শেয়ারিং (Open Graph) -->
+    <meta property="og:title" content="মখযানে আসইলা (مخزن الأسئلة) - বেফাক ও হাইআতুল উলয়া প্রশ্নভান্ডার">
+    <meta property="og:description" content="দাওরায়ে হাদীস, মিশকাত, শরহে বেকায়া, কাফিয়া, নাহবেমীর ও তাইসীর জামাতের বিগত বছরের সকল বোর্ড ও মাদরাসা প্রশ্নপত্রের ডিজিটাল সংকলন।">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.io">
+
     <!-- Font Awesome আইকন ব্যবহারের জন্য লিঙ্ক -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- গুগল ফন্ট (বাংলা লেখার জন্য ) -->
+    <!-- গুগল ফন্ট (বাংলা লেখার জন্য) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCYJP0HV80"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <link href="https://googleapis.com" rel="stylesheet">
 
-  gtag('config', 'G-KCYJP0HV80');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCYJP0HV80"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KCYJP0HV80');
+    </script>
+
+    <!-- সার্চ ইঞ্জিনের জন্য স্ট্রাকচার্ড ডেটা (Schema Markup) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "মখযানে আসইলা (مخزن الأسئلة) - বেফাক ও হাইআতুল উলয়া প্রশ্নভান্ডার",
+      "url": "https://github.io",
+      "description": "বেফাকুল মাদারিসিল আরাবিয়া বাংলাদেশ ও আল-হাইআতুল উলয়ার সকল জামাতের বিগত বছরের প্রশ্নপত্র সংকলন।"
+    }
+    </script>
+
     <style>
         /* ===== Base Style ===== */
         * {
@@ -28,8 +53,8 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364 );
+            font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,7 +71,7 @@
             top: 0; left: 0;
             width: 200%;
             height: 200%;
-            background: url("https://i.imgur.com/8IuucQZ.png" );
+            background: url("https://i.imgur.com/8IuucQZ.png");
             opacity: 0.15;
             animation: smoke 60s linear infinite;
             z-index: -1;
@@ -62,38 +87,48 @@
             text-align: center;
             z-index: 10;
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px 20px;
+            padding: 35px 22px;
             border-radius: 25px;
             box-shadow: 0 15px 45px rgba(0,0,0,0.5);
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             margin: auto;
         }
 
         /* ===== Heading ===== */
         h1 {
-            font-size: clamp(28px, 8vw, 42px);
-            margin-bottom: 35px;
+            font-size: clamp(30px, 8vw, 44px);
+            margin: 0 0 8px 0;
             font-weight: 800;
             text-shadow: 0 5px 15px rgba(0,0,0,0.3);
             background: linear-gradient(to bottom, #fff, #ccc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .subtitle {
+            direction: ltr;
+            font-size: 16px;
+            color: #a8e6cf;
+            margin: 0 0 28px 0;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         /* ===== Buttons Container ===== */
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
             width: 100%;
         }
 
         /* ===== Buttons ===== */
         .btn {
-            padding: 18px;
+            padding: 16px;
             font-size: 18px;
             font-weight: 600;
             color: #fff;
@@ -103,7 +138,7 @@
             display: block;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-family: 'Hind Siliguri', sans-serif; /* বাংলা বাটন লেখার জন্য */
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         .btn:hover {
@@ -120,43 +155,68 @@
         .btn:nth-child(1) { background: linear-gradient(45deg, #ff512f, #dd2476); }
         .btn:nth-child(2) { background: linear-gradient(45deg, #36d1dc, #5b86e5); }
         .btn:nth-child(3) { background: linear-gradient(45deg, #11998e, #38ef7d); }
-        .btn:nth-child(4) { background: linear-gradient(45deg, #f7971e, #ffd200); }
+        .btn:nth-child(4) { background: linear-gradient(45deg, #f7971e, #ffd200); color: #1a1a1a; }
 
-        /* ===== দাওয়াত ও ফিডব্যাক সেকশন ===== */
-        .feedback-section {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: 'Hind Siliguri', sans-serif; /* বাংলা ফন্টের জন্য */
-            direction: ltr; /* এই সেকশনের লেখা বাম থেকে ডানে হবে */
+        /* ===== SEO & জামাতভিত্তিক নেভিগেশন সেকশন ===== */
+        .seo-directory {
+            margin-top: 30px;
+            padding: 18px 15px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            direction: ltr;
+            text-align: left;
         }
 
-        .feedback-section p {
-            font-size: 15px;
-            line-height: 1.7;
+        .seo-directory h2 {
+            font-size: 16px;
+            color: #ffd200;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .seo-directory p {
+            font-size: 13.5px;
+            line-height: 1.6;
             color: rgba(255, 255, 255, 0.85);
-            text-align: justify;
+            margin: 0 0 12px 0;
+            text-align: center;
         }
 
-        .social-buttons {
+        .class-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
-        .social-btn {
+        .class-tag {
+            background: rgba(255, 255, 255, 0.12);
             color: #fff;
-            font-size: 26px;
             text-decoration: none;
-            transition: transform 0.3s, color 0.3s;
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.2s, transform 0.2s;
         }
 
-        .social-btn:hover {
-            transform: scale(1.2) rotate(10deg);
-            color: #38ef7d; /* হোভার করলে সবুজ হবে */
+        .class-tag:hover {
+            background: rgba(56, 239, 125, 0.3);
+            transform: translateY(-2px);
         }
-        
+
+        .subject-list {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.6;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+            padding-top: 10px;
+            text-align: center;
+        }
+
         /* ===== Balloons ===== */
         .balloon {
             position: fixed;
@@ -177,10 +237,10 @@
         /* Mobile Adjustments */
         @media (max-width: 480px) {
             .container {
-                padding: 30px 15px;
+                padding: 25px 15px;
             }
             .btn {
-                padding: 15px;
+                padding: 14px;
                 font-size: 16px;
             }
         }
@@ -196,46 +256,14 @@
 
     <div class="container">
         <h1>مخزن الأسئلة</h1>
+        <p class="subtitle">মখযানে আসইলা — বেফাক, হাইআতুল উলয়া ও কওমি মাদরাসা প্রশ্নভান্ডার</p>
 
         <div class="buttons-container">
-            <a href="hiea.html" class="btn">০১। হাইআ প্রশ্ন</a>
-            <a href="bafaq.html" class="btn">০২। বেফাক প্রশ্ন</a>
+            <a href="hiea.html" class="btn">০১। হাইআ প্রশ্ন (আল-হাইআতুল উলয়া)</a>
+            <a href="bafaq.html" class="btn">০২। বেফাক প্রশ্ন (বেফাকুল মাদারিসিল আরাবিয়া)</a>
             <a href="unsol.html" class="btn">০৩। আঞ্চলিক বোর্ডের প্রশ্ন</a>
             <a href="madrasha.html" class="btn">০৪। মাদরাসার প্রশ্ন</a>
         </div>
 
-        <!-- ===== দাওয়াত ও ফিডব্যাক সেকশন শুরু ===== -->
-        <div class="feedback-section">
-            <p>
-                <b>একটি নিবেদন ও আগামীর পথে…</b>  
-  
-
-                আসসালামু আলাইকুম। দ্বীনি ইলম অর্জনের এই দীর্ঘ সফরে একজন ক্ষুদ্র খাদেম হিসেবে আপনাদের জন্য "মখযানে আসইলা" (প্রশ্নভান্ডার) তৈরি করার চেষ্টা করেছি। যদি এই ক্ষুদ্র প্রচেষ্টা দ্বারা কোনো طالب العلم (জ্ঞান অন্বেষণকারী) সামান্যতমও উপকৃত হন, তবে আমার এই শ্রম সার্থক।  
-  
-
-                যদি এই কাজটিকে আপনারা উপকারী মনে করেন, অথবা যদি চান যে এ ধরনের উদ্যোগ অব্যাহত থাকুক, তবে আপনার একটি লাইক, একটি কমেন্ট বা একটি শেয়ার আমার জন্য অমূল্য অনুপ্রেরণা হয়ে থাকবে। এটি আমাকে জানিয়ে দেবে যে, আমার এই প্রচেষ্টা বৃথা যায়নি।  
-  
-
-                <b>একটি সুসংবাদ:</b>
-                আল্লাহ যদি চান, এই রমজানের মধ্যেই আমার সবচেয়ে আবেগের একটি প্রকল্প— <b>"ইলমুস সরফ"</b>-এর উপর একটি বিস্তারিত সফটওয়্যার নিয়ে আসার ইচ্ছা রাখি। আরবী ভাষার ভিত্তি মজবুত করার জন্য "সরফ"-এর জ্ঞান অপরিহার্য। আমার লক্ষ্য হলো, গতানুগতিক অনেক কিতাবের চেয়েও বেশি তথ্যবহুল এবং সহজবোধ্য একটি টুল তৈরি করা, যা শুধুমাত্র HTML দিয়ে বানানো হবে, যেন যেকোনো ডিভাইসে এটি স্বাচ্ছন্দ্যে ব্যবহার করা যায়।  
-  
-
-                আপনাদের একটি ছোট্ট ফিডব্যাকই পারে এই স্বপ্নগুলোকে বাস্তবে রূপ দেওয়ার সাহস জোগাতে। আমি আপনাদের দু'আ এবং মতামতের প্রত্যাশী।
-            </p>
-            <div class="social-buttons">
-                <!-- ফেসবুক গ্রুপের লিঙ্ক -->
-                <a href="https://m.me/j/AbZqWIxKx7Jzdja6/" target="_blank" class="social-btn" title="ফেসবুক গ্রুপে যোগ দিন"><i class="fab fa-facebook"></i></a>
-                <!-- হোয়াটসঅ্যাপ গ্রুপের লিঙ্ক -->
-                <a href="https://chat.whatsapp.com/KedNqOL8SQsI8el8YVfnzJ" target="_blank" class="social-btn" title="হোয়াটসঅ্যাপ গ্রুপে যোগ দিন"><i class="fab fa-whatsapp"></i></a>
-                <!-- ইমেইল লিঙ্ক -->
-                <a href="mailto:olizaoliza2001@gmail.com" class="social-btn" title="মতামত জানাতে ইমেইল করুন"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-        <!-- ===== দাওয়াত ও ফিডব্যাক সেকশন শেষ ===== -->
-
-    </div>
-<script src="https://maktaba-johir.github.io/Rahbar/counter.js"></script>
-</body>
-</html>
-
-
+        <!-- ===== জামাত ও কিতাবভিত্তিক সার্চ ডিরেক্টরি ===== -->
+        <div class="seo-directory">
